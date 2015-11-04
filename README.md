@@ -1,5 +1,15 @@
 # **Porque trabalhar no Grupo WP?** #
 
+* Porque quero trabalhar num ambiente MERITOCRÁTICO. Aqui os melhores são reconhecidos sempre!
+
+* Porque quero aprender coisas novas a cada minuto.
+
+* Porque quero ajudar a construir a maior empresa de tecnologia para educação do Brasil.
+
+* Porque tenho sede por novos desafios.
+
+* Porque quero fazer diferença!
+
 # **Como faço para me candidatar?** #
 
 1. Faça um fork do repositório
