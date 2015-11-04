@@ -14,8 +14,8 @@
 * Grande possibilidade de crescimento
 * Trabalhar com projetos que mudam a Educação no País
 * Café liberado
+* Frutas liberadas
 * Sinuca
 * Cerveja
 * PS3
 * Tv a Cabo
-* Plano de Carreira
