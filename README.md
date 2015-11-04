@@ -7,5 +7,15 @@
 * Local: No meio de Icarai, Niterói - RJ
 * Regime CLT
 * Período Integral
+* Horário Flexível
 * Vale Refeição
 * Vale Transporte
+* Ambiente descontraído
+* Grande possibilidade de crescimento
+* Trabalhar com projetos que mudam a Educação no País
+* Café liberado
+* Sinuca
+* Cerveja
+* PS3
+* Tv a Cabo
+* Plano de Carreira
