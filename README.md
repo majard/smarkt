@@ -22,7 +22,7 @@
 2. Desenvolva o desafio de acordo com o proposto abaixo
 3. Envie um email com o curriculo e um arquivo patch para rh@wpensar.com.br
 
-# **Desafio:** #
+# **Desafio Backend:** #
 
 O conceito desse desafio é nos ajudar a avaliar as habilidades dos candidatos às vagas de backend.
 
@@ -52,6 +52,33 @@ Esse sistema não precisa ter, mas será um plus:
 2. Ter um design bonito
 3. Testes automatizados
 
+
+# **Desafio Frontend e Mobile:** #
+
+O conceito desse desafio é nos ajudar a avaliar as habilidades dos candidatos às vagas de frontend e mobile.
+
+Você tem que desenvolver um sistema de estoque para um supermercado.
+
+A api mockada a ser utilizada fica em docs.querotrabalharnawpensar.apiary.io
+
+Seu sistema deve:
+
+1. Cadastro de produtos (Nome)
+2. Compra de produtos (Produto, quantidade e preço)
+3. Listagem dos produtos comprados separados por compra (Nome, quantidade, preço de compra)
+4. Ser fácil de configurar e rodar em ambiente Unix (Linux ou Mac OS X)
+5. Ser escrita em AngularJS (FrontEnd) ou Ionic (Mobile)
+6. Só deve utilizar biliotecas livres e gratuitas
+
+Esse sistema não precisa ter, mas será um plus:
+
+1. Autenticação e autorização
+2. Ter um design bonito
+3. Testes automatizados
+
+
+
+
 # **Avaliação:** #
 
 Vamos avaliar seguindo os seguintes critérios:
@@ -76,8 +103,3 @@ Vamos avaliar seguindo os seguintes critérios:
 * Cerveja
 * PS3
 * Tv a Cabo
-
-
-## **Referência:** ##
-
-Esse desafio foi baseado em outro desafio: https://github.com/myfreecomm/desafio-programacao-1
