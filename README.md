@@ -59,7 +59,7 @@ O conceito desse desafio é nos ajudar a avaliar as habilidades dos candidatos �
 
 Você tem que desenvolver um sistema de estoque para um supermercado.
 
-A api mockada a ser utilizada fica em docs.querotrabalharnawpensar.apiary.io
+A api mockada a ser utilizada fica em [API](docs.querotrabalharnawpensar.apiary.io)
 
 Seu sistema deve:
 
