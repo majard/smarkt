@@ -53,9 +53,9 @@ Esse sistema não precisa ter, mas será um plus:
 3. Testes automatizados
 
 
-# **Desafio Frontend e Mobile:** #
+# **Desafio Frontend:** #
 
-O conceito desse desafio é nos ajudar a avaliar as habilidades dos candidatos às vagas de frontend e mobile.
+O conceito desse desafio é nos ajudar a avaliar as habilidades dos candidatos às vagas de frontend.
 
 Você tem que desenvolver um sistema de estoque para um supermercado.
 
@@ -67,16 +67,14 @@ Seu sistema deve:
 2. Compra de produtos (Produto, quantidade e preço)
 3. Listagem dos produtos comprados separados por compra (Nome, quantidade, preço de compra)
 4. Ser fácil de configurar e rodar em ambiente Unix (Linux ou Mac OS X)
-5. Ser escrita em AngularJS (FrontEnd) ou Ionic (Mobile)
-6. Só deve utilizar biliotecas livres e gratuitas
+5. Só deve utilizar biliotecas livres e gratuitas
 
 Esse sistema não precisa ter, mas será um plus:
 
 1. Autenticação e autorização
-2. Ter um design bonito
+2. Ter um design bonito e responsivo
 3. Testes automatizados
-
-
+4. Angular/Ionic
 
 
 # **Avaliação:** #
