@@ -31,20 +31,17 @@ Você tem que desenvolver um sistema de estoque para um supermercado.
 Esse supermercado assume que sempre que ele compra uma nova leva de produtos, ele tem que calcular o preço médio de compra de cada produto para estipular um preço de venda.
 Para fins de simplificação assuma que produtos que tenham nomes iguais, são o mesmo produto e que não existe nem retirada e nem venda de produtos no sistema.
 
-O cálculo do preço médio desse produto deve ser feito assincronamente e o valor calculado deve ser armazenado.
+O valor calculado de preço médio deve ser armazenado.
 
 Seu sistema deve:
 
 1. Cadastro de produtos (Nome)
 2. Compra de produtos (Produto, quantidade e preço de compra)
 3. Listagem dos produtos comprados separados por compra (Nome, quantidade, preço de compra, preço médio)
-4. Exibição da fila de processamento das tarefas de calculo de preço médio (Aguardando, Em execução, Executados)
-5. Ser fácil de configurar e rodar em ambiente Unix (Linux ou Mac OS X)
-6. Ser WEB
-7. Ser escrita em Python 2.7+
-8. Só deve utilizar biliotecas livres e gratuitas
-
-Para podermos visualizar a fila de processamento, assumindo que o calculo do preço médio é irrisorio computacionalmente, coloque algum delay na tarefa de calculo.
+4. Ser fácil de configurar e rodar em ambiente Unix (Linux ou Mac OS X)
+5. Ser WEB
+6. Ser escrita em Python 3.4+
+7. Só deve utilizar biliotecas livres e gratuitas
 
 Esse sistema não precisa ter, mas será um plus:
 
