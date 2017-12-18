@@ -71,10 +71,10 @@ Seu sistema deve:
 
 Esse sistema não precisa ter, mas será um plus:
 
-1. Autenticação e autorização
+1. Autenticação e autorização (Facebook, Google, Twitter)
 2. Ter um design bonito e responsivo
 3. Testes automatizados
-4. Angular/Ionic
+4. Angular / Ionic / React / ReactNative
 
 
 # **Avaliação:** #
