@@ -1,3 +1,15 @@
+Para instalar todas as dependências de forma expressa, foi utilizada a ferramenta pipenv
+
+pip install pipenv
+
+Após instalar, apenas clone o repositório e digite:
+
+pipenv install
+
+That will create an isolated virtual enviornment and install the necessary packages.
+
+
+
 # **Porque trabalhar no Grupo WP?** #
 
 * Porque quero trabalhar num ambiente MERITOCRÁTICO. Aqui os melhores são reconhecidos sempre!
