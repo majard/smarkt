@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Receipt(models.Model):
+    name = models.CharField(max_length=200)
+    quantitiy = models.IntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    average_price = models.DecimalField(max_digits=10, decimal_places=2,
+     									null = True, blank = True)
