@@ -43,13 +43,13 @@ class ReceiptViewTests(APITestCase):
 		total_sum = (PRICE * QUANTITY) + (ANOTHER_PRICE * ANOTHER_QUANTITY)
 		total_quantity = QUANTITY + ANOTHER_QUANTITY
 		expected_average_price = Decimal(total_sum) / Decimal(total_quantity)
+
 		self.payload = {'name': PRODUCT_NAME, 'quantity': ANOTHER_QUANTITY,
 			'price' : ANOTHER_PRICE}
 		response = self.client.post(
 			reverse('create_receipt'), 
 			self.payload, format = "json")
 
-		print(Product.objects.get())
 		self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 		self.assertEqual(Decimal(response.data['average_price']), expected_average_price)
 
@@ -62,6 +62,7 @@ class ReceiptViewTests(APITestCase):
 		response = self.client.get(
 		    reverse('receipt_details', kwargs = {'pk': self.receipt.id}),
 		    format="json")
+
 		self.assertEqual(response.status_code, status.HTTP_200_OK)
 		self.assertContains(response, expected_response)
 	
@@ -71,4 +72,5 @@ class ReceiptViewTests(APITestCase):
 		    reverse('receipt_details', kwargs={'pk': self.receipt.id}),
 		    format='json',
 		    follow=True)
+		
 		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
