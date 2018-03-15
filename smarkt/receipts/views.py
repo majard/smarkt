@@ -11,11 +11,15 @@ class CreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         """Save the post data when creating a new receipt."""
-        product_name = self.request.name
-        quantity = self.request.quantity
-        price = self.request.price
+
+        request_data = self.request.data
+        print("self.request.data: ")
+        print(self.request.data)
+        product_name = request_data['name']
+        quantity = request_data['quantity']
+        price = request_data['price']
         receipts = Receipt.objects.filter(name=product_name)
-        product = get_object_or_404(name=product_name)
+        product = get_object_or_404(Product, name=product_name)
 
         if product.average_price is None:
         	average_price =  price
