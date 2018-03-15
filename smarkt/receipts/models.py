@@ -9,3 +9,9 @@ class Receipt(models.Model):
     	validators=[MinValueValidator(Decimal('0.01'))])
     average_price = models.DecimalField(max_digits=10, decimal_places=2,
      									null = True, blank = True)
+
+    def __str__(self):
+        """Return a human readable representation of the model instance."""
+        response = "name: {}\n quantity: {}\nprice: {}\n average_price: {} "
+        return response.format(self.name, self.quantity,
+        	self.price, self.average_price)
