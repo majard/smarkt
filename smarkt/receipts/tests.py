@@ -68,9 +68,13 @@ class ReceiptViewTests(APITestCase):
 	
 	def test_api_can_delete_receipt(self):
 		"""Test the api can delete a receipt."""
+		old_quantity = Product.objects.get().quantity
 		response = self.client.delete(
 		    reverse('receipt_details', kwargs={'pk': self.receipt.id}),
 		    format='json',
 		    follow=True)
 
-		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+		new_quantity = Product.objects.get().quantity
+
+		self.assertEqual(new_quantity - old_quantity, self.receipt.quantity)
+		self.assertEqual(response, expected_response)
