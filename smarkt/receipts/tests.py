@@ -17,6 +17,7 @@ ANOTHER_PRICE = Decimal(2.50)
 class ReceiptModelTests(APITestCase):
 
 	def test_model_can_create_receipts(self):
+		Product.objects.create(name = PRODUCT_NAME)
 		old_count = Receipt.objects.count()
 		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
 			price = PRICE)
@@ -32,8 +33,7 @@ class ReceiptViewTests(APITestCase):
 		self.client = APIClient()
 		#set precision for Decimals
 		getcontext().prec = 2
-		Product.objects.create(name = PRODUCT_NAME, quantity = QUANTITY, 
-			average_price = PRICE)
+		Product.objects.create(name = PRODUCT_NAME)
 		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
 			price = PRICE)
 		self.receipt = Receipt.objects.get()
@@ -72,5 +72,5 @@ class ReceiptViewTests(APITestCase):
 		    reverse('receipt_details', kwargs={'pk': self.receipt.id}),
 		    format='json',
 		    follow=True)
-		
+
 		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
