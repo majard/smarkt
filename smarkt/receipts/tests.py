@@ -3,6 +3,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.test import APIClient, APITestCase
 from rest_framework import status
 from .models import Receipt
+from product.models import Product
 from .serializers import ReceiptSerializer
 
 PRODUCT_NAME = "Maçã"
@@ -28,7 +29,7 @@ class ReceiptViewTests(APITestCase):
 	def setUp(self):
 		"""setup the client"""
 		self.client = APIClient()
-		"""Create a Receipt in the DB"""
+		Product.objects.create(name = PRODUCT_NAME)
 		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
 			price = PRICE)
 		self.receipt = Receipt.objects.get()
