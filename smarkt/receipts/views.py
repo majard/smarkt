@@ -13,8 +13,6 @@ class CreateView(generics.ListCreateAPIView):
         """Save the post data when creating a new receipt."""
 
         request_data = self.request.data
-        print("self.request.data: ")
-        print(self.request.data)
         product_name = request_data['name']
         quantity = request_data['quantity']
         price = request_data['price']
