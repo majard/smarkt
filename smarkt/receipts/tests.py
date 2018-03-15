@@ -77,4 +77,4 @@ class ReceiptViewTests(APITestCase):
 		new_quantity = Product.objects.get().quantity
 
 		self.assertEqual(new_quantity - old_quantity, self.receipt.quantity)
-		self.assertEqual(response, expected_response)
+		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
