@@ -21,15 +21,13 @@ class CreateView(generics.ListCreateAPIView):
         	average_price =  price
         	product.average_price = price
         else:
-        	average_price = ((price * quantity) + 
+        	average_price = (((price * quantity) + 
         		(product.average_price * product.quantity)) /
-        		(quantity + product.quantity) 
+        		(quantity + product.quantity))
+        	product.average_price = average_price
 
-		product.quantity += quantity
-		product.save()
-
-
-
+        product.quantity += quantity
+        product.save()
         serializer.save(average_price = average_price)
 
 class DetailsView(generics.RetrieveDestroyAPIView):
