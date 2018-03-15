@@ -3,6 +3,7 @@ from .serializers import ReceiptSerializer
 from django.shortcuts import get_object_or_404
 from .models import Receipt
 from products.models import Product
+from decimal import Decimal
 
 class CreateView(generics.ListCreateAPIView):	
     """This class defines the create behavior of the rest api."""
@@ -14,8 +15,8 @@ class CreateView(generics.ListCreateAPIView):
 
         request_data = self.request.data
         product_name = request_data['name']
-        quantity = request_data['quantity']
-        price = request_data['price']
+        quantity = Decimal(request_data['quantity'])
+        price = Decimal(request_data['price'])
         receipts = Receipt.objects.filter(name=product_name)
         product = get_object_or_404(Product, name=product_name)
 
