@@ -19,8 +19,9 @@ class ReceiptModelTests(APITestCase):
 	def test_model_can_create_receipts(self):
 		Product.objects.create(name = PRODUCT_NAME)
 		old_count = Receipt.objects.count()
-		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
-			price = PRICE)
+		Receipt.objects.create(name = PRODUCT_NAME, 
+			quantity = QUANTITY, price = PRICE)
+
 		new_count = Receipt.objects.count()
 		self.assertNotEqual(old_count, new_count)
 
@@ -36,6 +37,7 @@ class ReceiptViewTests(APITestCase):
 		Product.objects.create(name = PRODUCT_NAME)
 		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
 			price = PRICE)
+
 		self.receipt = Receipt.objects.get()
 		self.serializer = ReceiptSerializer(self.receipt)
 
@@ -68,13 +70,25 @@ class ReceiptViewTests(APITestCase):
 	
 	def test_api_can_delete_receipt(self):
 		"""Test the api can delete a receipt."""
-		old_quantity = Product.objects.get().quantity
+		# create another receipt in the DB to have quantity > 0 
+		Receipt.objects.create(name = PRODUCT_NAME, quantity = QUANTITY,
+			price = PRICE)
+		product = Product.objects.get()
+		old_quantity =  product.quantity
+		old_average_price = Decimal(product.average_price)
 		response = self.client.delete(
 		    reverse('receipt_details', kwargs={'pk': self.receipt.id}),
 		    format='json',
 		    follow=True)
 
-		new_quantity = Product.objects.get().quantity
+		# get updated object
+		product.refresh_from_db()
+		new_quantity = Decimal(product.quantity)
+		old_sum = (old_quantity * old_average_price)
+		new_average_price = old_quantity - new_quantity
+		expected_average_price = (( old_sum -
+			(self.receipt.price * self.receipt.quantity)) / new_quantity)
 
-		self.assertEqual(new_quantity - old_quantity, self.receipt.quantity)
+		self.assertEqual(new_average_price, self.receipt.quantity)
+		self.assertEqual(product.average_price, expected_average_price)
 		self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

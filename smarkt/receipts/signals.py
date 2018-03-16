@@ -10,7 +10,7 @@ from decimal import Decimal
 
 @receiver(pre_save, sender=Receipt)
 def save_receipt_and_update_product(sender, instance, **kwargs):
-	""" Checks the product exists and updates the DB before saving a receipt"""
+	""" Checks the product exists and updates the product quantity before saving a receipt"""
 	
 	receipt = instance	
 	product = get_object_or_404(Product, name=receipt.name)
@@ -32,12 +32,19 @@ def save_receipt_and_update_product(sender, instance, **kwargs):
 
 @receiver(post_delete, sender=Receipt)
 def delete_receipt_and_update_product(sender, instance, **kwargs):
-	""" Updates the product table after deleting a receipt"""
+	""" Updates the quantity of the product after deleting a receipt"""
 	
 	receipt = instance	
 	product = get_object_or_404(Product, name=receipt.name)
-	quantity = Decimal(receipt.quantity)
-	price = Decimal(receipt.price)
+	quantity_deleted = Decimal(receipt.quantity)
+	receipt_price = Decimal(receipt.price)
+	new_quantity = (product.quantity) - quantity_deleted
 
-	product.quantity += quantity
+	if product.average_price is not None and new_quantity > 0:
+		average_price = (((product.average_price * product.quantity) -
+			(receipt_price * quantity_deleted)) /
+    		new_quantity)
+		product.average_price = average_price
+
+	product.quantity -= quantity_deleted
 	product.save()
