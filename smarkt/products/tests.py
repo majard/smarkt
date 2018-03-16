@@ -68,7 +68,6 @@ class ProductViewTests(APITestCase):
 
 
 	def test_api_can_create_a_product(self):
-		print(self.auth_headers)
 		response = self.client.post(
 			reverse('create_product'),
 			self.payload, format = "json")
