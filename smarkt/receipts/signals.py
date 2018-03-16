@@ -1,6 +1,11 @@
 from django.dispatch import receiver
-from django.db.models.signals import pre_save, post_delete
+from django.db.models.signals import pre_save, post_delete, post_save
 from django.shortcuts import get_object_or_404
+
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from django.dispatch import receiver
+
 
 from products.models import Product
 from .models import Receipt

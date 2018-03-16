@@ -72,6 +72,7 @@ GET http://localhost:8000/api/receipts/<receipt_id>
 DELETE http://localhost:8000/api/receipts/<receipt_id>
 -> retorna todas as compras do usuário atualmente autenticado
 
+Mais detalhes e exemplos de uso nos testes em receipts/tests.py e products/tests.py
 
 
 

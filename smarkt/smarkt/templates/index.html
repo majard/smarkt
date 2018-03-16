@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %} 
+{% block content %}
+
+<br />
+
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <div class="row search_form">
+      <div class="col-sm-10">
+        {% for field in form %}
+          <b>{{ field.label_tag }}</b> {{ field }}
+        {% endfor %}
+      </div>
+      <input type="submit" value="Pesquisar" class="btn btn-default col-sm-2" />
+    </div>
+  </div>
+</form>
+
+{% if object_list %}
+<table>
+  {% for receipt in object_list %} 
+    <tr>
+
+    <td class="list">
+      <div class='post-list-element'>
+        <a href="{{ receipt.get_absolute_url }}">{{ receipt }}</a>
+        <a href="{{ receipt.owner.get_absolute_url }}">({{receipt.owner}})</a>
+      </div>
+    </td>
+
+  <tr>
+  {% endfor %}
+
+</table>
+
+  {% else %}  
+    <p>Não existem compras cadastradas.</p>
+  {% endif %} 
+{% endblock %}

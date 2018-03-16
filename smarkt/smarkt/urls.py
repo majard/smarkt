@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth import views as auth_views
+
+from . import views
 
 api_patterns = [
     path('products/', include('products.urls'), name = 'products'),
@@ -22,10 +25,15 @@ api_patterns = [
 ]
 
 urlpatterns = [
+    path('', views.index, name='home'),
+    path('login/', auth_views.login, name='login'),
+    path('logout/', auth_views.logout, {'next_page': '/'} ,name='logout'),
+    path('register/', views.signup, name='signup'),
 	path('api/', include(api_patterns)),
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls', 
         namespace='rest_framework')),
     path('o/', include('oauth2_provider.urls', 
         namespace='oauth2_provider')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
