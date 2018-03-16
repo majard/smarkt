@@ -7,6 +7,10 @@ class Receipt(models.Model):
     quantity = models.IntegerField(validators = [MinValueValidator(1)])
     date_created = models.DateTimeField(auto_now_add=True)
 
+    product = models.ForeignKey('products.Product',
+        related_name='receipts', 
+        on_delete=models.CASCADE)      
+
     owner = models.ForeignKey('auth.User',
         related_name='receipts', 
         on_delete=models.CASCADE)     
