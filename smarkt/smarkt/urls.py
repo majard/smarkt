@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from rest_framework import permissions, routers, serializers, viewsets
+
+from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
+
+
+
 api_patterns = [
     path('products/', include('products.urls'), name = 'products'),
     path('receipts/', include('receipts.urls'), name = 'receipts'),
@@ -24,4 +30,5 @@ api_patterns = [
 urlpatterns = [
 	path('api/', include(api_patterns)),
     path('admin/', admin.site.urls),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

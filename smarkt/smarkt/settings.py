@@ -125,6 +125,12 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     )
+}
+
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
 }
