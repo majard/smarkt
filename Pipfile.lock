@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b14c207683aef5fefad35027e462382eb7ac66c6d3a430e8fc9ae0088e4912c9"
+            "sha256": "913066f18ec41c06a43c8d1b0c2e013e8ee7f34e9fa8c5b97a6be9941968c730"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -36,6 +36,13 @@
                 "sha256:769f212ffd5762f72c764fa648fca3b7f7dd4ec27407198b68e7c4abf4609fd0"
             ],
             "version": "==2.0.3"
+        },
+        "django-filter": {
+            "hashes": [
+                "sha256:ea204242ea83790e1512c9d0d8255002a652a6f4986e93cee664f28955ba0c22",
+                "sha256:ec0ef1ba23ef95b1620f5d481334413700fb33f45cd76d56a63f4b0b1d76976a"
+            ],
+            "version": "==1.1.0"
         },
         "django-oauth-toolkit": {
             "hashes": [
@@ -83,6 +90,12 @@
                 "sha256:9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
             ],
             "version": "==2.18.4"
+        },
+        "rest-condition": {
+            "hashes": [
+                "sha256:7f47ed11a6519260b3f6248a2b6d6bf127ea7d9e04155fcf1e546bb561295af8"
+            ],
+            "version": "==1.0.3"
         },
         "urllib3": {
             "hashes": [

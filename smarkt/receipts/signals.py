@@ -16,6 +16,7 @@ def save_receipt_and_update_product(sender, instance, **kwargs):
 	product = get_object_or_404(Product, name=receipt.name)
 	quantity = Decimal(receipt.quantity)
 	price = Decimal(receipt.price)
+	receipt.product = product
 
 	if product.average_price is None:
 		average_price =  price
@@ -48,5 +49,5 @@ def delete_receipt_and_update_product(sender, instance, **kwargs):
 	else:
 		product.average_price = None
 
-	product.quantity - new_quantity
+	product.quantity = new_quantity
 	product.save()

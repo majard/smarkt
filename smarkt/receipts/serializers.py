@@ -7,4 +7,5 @@ class ReceiptSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Receipt
-        fields = ('id', 'name', 'quantity', 'price', 'average_price')
+        fields = ('id', 'name', 'quantity',
+        	'price', 'average_price')

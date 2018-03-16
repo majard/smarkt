@@ -7,4 +7,4 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Product
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'quantity', 'average_price')

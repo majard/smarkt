@@ -23,7 +23,16 @@ Acessamos http://localhost:8000/admin e nos autenticamos no admin do django, ago
 Registrando Aplicação de Autenticação
 
 Agora vamos acessar http://127.0.0.1:8000/o/applications/ e vamos registrar nossa API de autenticação utilizando qualquer nome.
+
 Client type: Confidential. Authorization grant type: resource owner password-based.
+
+Para poder acessar os endpoints é necessário incluir o token de acesso na requisição. Para conseguir um token de acesso, podemos usar o seguinte comando:
+
+& curl -X POST http://localhost:8000/o/token/ -H "content-type: application/x-www-form-urlencoded" -d "grant_type=password&client_id=<your client id>&client_secret=<your client secret>&username=<your username>&password=<your password>"
+
+A resposta deve ser a seguinte
+
+$ {"expires_in": 36000, "refresh_token": <your refresh token>, "access_token": <your access token>, "token_type": "Bearer", "scope": "read write groups"}
 
 
 # **Desafio Backend:** #
