@@ -45,6 +45,8 @@ def delete_receipt_and_update_product(sender, instance, **kwargs):
 			(receipt_price * quantity_deleted)) /
     		new_quantity)
 		product.average_price = average_price
+	else:
+		product.average_price = None
 
-	product.quantity -= quantity_deleted
+	product.quantity - new_quantity
 	product.save()
