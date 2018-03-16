@@ -1,38 +1,30 @@
-Para instalar todas as dependências de forma expressa, foi utilizada a ferramenta pipenv
+Caso não tenha a ferramenta pip, digite o seguinte comando no terminal:
+$ sudo easy_install pip
 
-pip install pipenv
+Para instalar todas as dependências de forma expressa, foi utilizada a ferramenta pipenv:
 
-Após instalar, apenas clone o repositório e digite:
+$ pip install pipenv
+
+Após instalar, apenas clone o repositório e digite no diretório com o arquivo Pipfile:
 
 pipenv install
 
-That will create an isolated virtual enviornment and install the necessary packages.
+Isso criará um ambiente virtual isolado e instalará os pacotes necessários.
 
+Agora temos que aplicar as migrações do Django OAuth Toolkit e criar um superusuário para ter acesso a interface que o pacote disponibiliza, vamos fazer isso com os seguintes comandos
 
+$ python manage.py migrate
 
-# **Porque trabalhar no Grupo WP?** #
+$ python manage.py createsuperuser
 
-* Porque quero trabalhar num ambiente MERITOCRÁTICO. Aqui os melhores são reconhecidos sempre!
+$ python manage.py runserver
 
-* Porque quero aprender coisas novas a cada minuto.
+Acessamos http://localhost:8000/admin e nos autenticamos no admin do django, agora estamos prontos para registrar nossa API de autenticação.
+Registrando Aplicação de Autenticação
 
-* Porque quero ajudar a construir a maior empresa de tecnologia para educação do Brasil.
+Agora vamos acessar http://127.0.0.1:8000/o/applications/ e vamos registrar nossa API de autenticação utilizando qualquer nome.
+Client type: Confidential. Authorization grant type: resource owner password-based.
 
-* Porque tenho sede por novos desafios.
-
-* Porque quero fazer diferença!
-
-# **Como faço para me candidatar?** #
-
-1. Faça um fork do repositório
-2. Desenvolva o desafio de acordo com o proposto abaixo
-3. Mande um pull request com o curriculo e a resposta do desafio
-
-## ** Caso você não deseje que o envio seja público ** ##
-
-1. Faça um clone do repositório
-2. Desenvolva o desafio de acordo com o proposto abaixo
-3. Envie um email com o curriculo e um arquivo patch para rh@wpensar.com.br
 
 # **Desafio Backend:** #
 
@@ -92,21 +84,3 @@ Vamos avaliar seguindo os seguintes critérios:
 
 1. Você conseguiu concluir os requisitos?
 2. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-
-# **Condições e Beneficios Oferecidos:** #
-
-* Local: No meio de Icarai, Niterói - RJ
-* Regime CLT
-* Período Integral
-* Horário Flexível
-* Vale Refeição
-* Vale Transporte
-* Ambiente descontraído
-* Grande possibilidade de crescimento
-* Trabalhar com projetos que mudam a Educação no País
-* Café liberado
-* Frutas liberadas
-* Sinuca
-* Cerveja
-* PS3
-* Tv a Cabo

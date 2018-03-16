@@ -5,7 +5,6 @@ from decimal import Decimal
 class Receipt(models.Model):
     name = models.CharField(max_length=200)
     quantity = models.IntegerField(validators = [MinValueValidator(1)])
-    date_created = models.DateTimeField(auto_now_add=True)
 
     product = models.ForeignKey('products.Product',
         related_name='receipts', 
