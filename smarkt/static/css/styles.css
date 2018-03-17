@@ -1,0 +1,39 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.list{
+    padding: 20px;
+
+}
+
+body{
+    padding-bottom: 50px;
+    background-color: rgb(30, 26, 26);
+    color: gray;
+}
+
+.post-list-element{
+    padding: 10px;
+    display: inline-block;
+}
+
+
+#id_address{
+    width:64%;
+    height: 32px;
+    display: inline-block;  
+    margin-right: 28px;  
+}
+
+.search_form{
+    font-size: 18px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+.title{
+    font-size: 48px;
+}

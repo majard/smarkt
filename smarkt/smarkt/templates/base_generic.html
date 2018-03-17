@@ -28,7 +28,7 @@
 
           <ul class="nav navbar-nav">
               {% if user.is_authenticated %}
-                <li>User: {{ user.get_username }} </a></li>
+                <li ><a> Usuário: {{ user.username }} </a></li>
                 
                 <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
               {% else %}
