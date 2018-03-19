@@ -1,12 +1,19 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
+from products.views import Product
 
-def index(request):
+def home(request):
+
+    if request.user.is_authenticated:
+        products = Product.objects.filter(owner=request.user)
+    else:
+        products = None
     
     return render(
         request,
-        'index.html',
+        'index.html', 
+        {'object_list': products}
         )
 
 def signup(request):

@@ -19,7 +19,6 @@ body{
     display: inline-block;
 }
 
-
 #id_address{
     width:64%;
     height: 32px;
@@ -35,4 +34,8 @@ body{
 
 .title{
     font-size: 48px;
+}
+
+.separated td {
+    width: 210px;
 }

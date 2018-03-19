@@ -25,10 +25,12 @@ api_patterns = [
 ]
 
 urlpatterns = [
-    path('', views.index, name='home'),
+    path('', views.home, name='home'),
+
     path('login/', auth_views.login, name='login'),
     path('logout/', auth_views.logout, {'next_page': '/'} ,name='logout'),
     path('register/', views.signup, name='signup'),
+    
 	path('api/', include(api_patterns)),
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls', 

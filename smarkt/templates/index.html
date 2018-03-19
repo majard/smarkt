@@ -17,24 +17,6 @@
   </div>
 </form>
 
-{% if object_list %}
-<table>
-  {% for receipt in object_list %} 
-    <tr>
-
-    <td class="list">
-      <div class='post-list-element'>
-        <a href="{{ receipt.get_absolute_url }}">{{ receipt }}</a>
-        <a href="{{ receipt.owner.get_absolute_url }}">({{receipt.owner}})</a>
-      </div>
-    </td>
-
-  <tr>
-  {% endfor %}
-
+<table id="list_table">
 </table>
-
-  {% else %}  
-    <p>Não existem compras cadastradas.</p>
-  {% endif %} 
 {% endblock %}

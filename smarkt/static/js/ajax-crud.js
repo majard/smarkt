@@ -6,6 +6,37 @@ const FADE_IN_ANIMATION_DURATION = 300;
 
 
 $(document).ready(function() {
+
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer 1gAlTa351HAlQH4iotbQpX59nk0Hx0'
+        }
+    })
+
+
+    $.ajax({            
+        
+        url: "/api/products/",
+
+        type:'GET',
+
+        async:false,
+
+        success: function(data) {                
+          var rows = '';
+          for (var i=0; i<data.length; i++) {  
+            var item = data[i];
+            rows += '\n<tr><td>' + (i+1) + ': ' + item.text + '</td></tr>';
+          }
+          $('#list_table').html(rows);
+
+        }
+    }); 
+
+
     // Create a product
     $(".create-product").click(function(e){
         $(this).prop('disabled', true);
@@ -24,7 +55,7 @@ $(document).ready(function() {
 
         $.ajax({            
             
-            url: "/cadastro/producta",
+            url: "/products/",
 
             type:'POST',
 
@@ -129,9 +160,6 @@ $(document).ready(function() {
                 else if (data.status == 403){
                     toastr.error('Você não pode editar essa producta!', 'Erro!', {timeOut: ERROR_MESSAGE_DURATION});
                 }
-                else if (data.status == 409){
-                    toastr.error('Já existe uma producta com esse cnpj!', 'Erro!', {timeOut: ERROR_MESSAGE_DURATION});
-}
                 else 
                 {
                     toastr.error(data.responseJSON.message, 'Erro!', {timeOut: ERROR_MESSAGE_DURATION});
@@ -139,5 +167,4 @@ $(document).ready(function() {
             }
         });
     });
-
-    // Open delete modal
+});

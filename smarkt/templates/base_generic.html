@@ -12,17 +12,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  
-    <!-- Scripts -->    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!-- toastr notifications -->
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-<!--  <script type="text/javascript" href="{% static 'js/ajax-crud.js' %}"> -->
 </head>
 
 <body>
@@ -70,8 +61,58 @@
     {% endif %}
     {% endblock %}
     </div>
-    </div>
+  </div>
+ </div>
 
-</div>
+    <!-- Scripts -->    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- toastr notifications -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" href="{% static 'js/ajax-crud.js' %}"> </script>
+
+
+<script> 
+
+$(document).ready(function () {
+    console.log("at least the damn thing is loading")
+      $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer 1gAlTa351HAlQH4iotbQpX59nk0Hx0'
+        }
+    })
+    
+    $.ajax({            
+        
+        url: "/api/products/",
+
+        type:'GET',
+
+        success: function(data) {
+          console.log(data);
+          var rows = '';
+          for (var i=0; i<data.length; i++) {  
+            var product = data[i];
+            rows +='<tr class="separated">\n\
+            <td> Produto </td>\n\
+            <td> Quantidade </td>\n\
+            <td> Preço Médio: </td>\n\
+            </tr>'
+            rows += '\n<tr><td>' + product.name + 
+            ' </td> <td>' + product.quantity + 
+            ' </td> <td>' +  product.average_price + ' \n</td></tr>';
+          }
+          $('#list_table').html(rows);
+
+        }
+    });
+
+  });
+</script>
+
+
 </body>
 </html>
